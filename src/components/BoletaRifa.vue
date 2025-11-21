@@ -364,4 +364,3 @@ const handleImageError = (event) => {
   }
 }
 </style>
-

@@ -56,9 +56,10 @@ npm run dev
 
 ```
 generador-boletas-rifa/
-├── logos-stands/          # Logos de los videojuegos participantes
-│   ├── utcbis-logo.png    # Logo oficial de UTCBIS
-│   └── [logos de videojuegos]
+├── public/
+│   └── logos-stands/      # Logos de los videojuegos participantes (servidos estáticamente)
+│       ├── utcbis-logo.png    # Logo oficial de UTCBIS
+│       └── [logos de videojuegos]
 ├── src/
 │   ├── components/
 │   │   └── BoletaRifa.vue # Componente de boleta individual

@@ -53,6 +53,7 @@
           <span class="folio-label-footer">FOLIO</span>
           <span class="folio-numero-footer">{{ folioFormateado }}</span>
         </div>
+        <p class="footer-texto-premio">Con este folio podrás recibir tu premio en caso de ganar.</p>
         <p class="footer-texto">Reúne todas las firmas en los stands de videojuegos y entrega esta boleta en la tómbola. / La recepción cierra a las 4:30 pm.</p>
       </div>
     </div>
@@ -338,6 +339,15 @@ const handleImageError = (event) => {
   line-height: 1;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.footer-texto-premio {
+  font-size: 8px;
+  color: #d63031;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 6px 0;
+  text-align: center;
 }
 
 .footer-texto {

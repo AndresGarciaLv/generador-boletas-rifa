@@ -105,7 +105,8 @@ const generarPDF = async () => {
     const pdf = new jsPDF({
       orientation: 'landscape',
       unit: 'mm',
-      format: [pdfWidth, pdfHeight]
+      format: [pdfWidth, pdfHeight],
+      compress: true // Habilitar compresión del PDF
     })
     
     for (let i = 0; i < paginas.length; i++) {
@@ -127,7 +128,9 @@ const generarPDF = async () => {
         windowHeight: paginas[i].scrollHeight
       })
       
-      const imgData = canvas.toDataURL('image/png', 0.92) // Comprimir ligeramente PNG
+      // Usar JPEG con alta calidad para reducir tamaño sin perder calidad visual en los logos
+      // JPEG es más eficiente que PNG para imágenes sin transparencia
+      const imgData = canvas.toDataURL('image/jpeg', 0.92) // JPEG con 92% de calidad
       
       // Márgenes para evitar que se corte al imprimir (reducidos un poco)
       const margin = 8 // mm en cada lado
@@ -148,7 +151,8 @@ const generarPDF = async () => {
       const x = margin + (availableWidth - imgWidth) / 2
       const y = margin + (availableHeight - imgHeight) / 2
       
-      pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight)
+      // Usar JPEG en lugar de PNG para menor tamaño (los logos se verán igual de bien)
+      pdf.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight)
       
       // Pequeño delay para no bloquear el navegador
       if (i < paginas.length - 1) {
